@@ -6,7 +6,7 @@
 #    By: lucida-s <lucida-s@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 17:08:51 by lucida-s          #+#    #+#              #
-#    Updated: 2022/12/16 19:02:10 by lucida-s         ###   ########.fr        #
+#    Updated: 2022/12/16 20:37:34 by lucida-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRC =		ft_printf.c
 
 OBJS =		$(SRC:.c=.o)
 
-HEADER =	libftprint.h
+HEADER =	ft_printf.h
 
 MKFILE =	Makefile
 

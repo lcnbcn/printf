@@ -6,7 +6,7 @@
 /*   By: lucida-s <lucida-s@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 19:23:40 by lucida-s          #+#    #+#             */
-/*   Updated: 2022/12/16 20:08:21 by lucida-s         ###   ########.fr       */
+/*   Updated: 2022/12/16 22:26:11 by lucida-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int	ft_printf(char const *, ...);
+int	ft_printf(char const *format, ...);
 
 #endif

@@ -6,13 +6,13 @@
 #    By: lucida-s <lucida-s@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 17:08:51 by lucida-s          #+#    #+#              #
-#    Updated: 2022/12/16 20:37:34 by lucida-s         ###   ########.fr        #
+#    Updated: 2023/01/16 16:52:22 by lucida-s         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		libftprintf.a
 
-SRC =		ft_printf.c	
+SRC =		ft_printf.c	ft_format_c_s.c
 
 OBJS =		$(SRC:.c=.o)
 

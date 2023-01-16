@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_format_c_s.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lucida-s <lucida-s@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/16 19:09:59 by lucida-s          #+#    #+#             */
-/*   Updated: 2023/01/16 18:02:41 by lucida-s         ###   ########.fr       */
+/*   Created: 2023/01/16 15:10:33 by lucida-s          #+#    #+#             */
+/*   Updated: 2023/01/16 16:10:09 by lucida-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-/*int	ft_printf(char const *format, ...)
+int	ft_format_c(int count, char c)
 {
-	
-}*/
+	count = write(1, &c, 1);
+	if (count == -1)
+		return (-1);
+	count++;
+	return (count);
+}
 
-int	main(void)
+int	ft_format_s(int count, char *s)
 {
-	ft_fmt_id(0, -255);
-	return (0);
+	int	i;
+
+	i = -1;
+	if (!s)
+		s = "(null)";
+	while (s[++i])
+	{
+		count = ft_format_c(count, s[i]);
+		if (count == -1)
+			return (-1);
+	}
+	return (count);
 }

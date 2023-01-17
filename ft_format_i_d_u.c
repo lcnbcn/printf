@@ -6,7 +6,7 @@
 /*   By: lucida-s <lucida-s@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 16:10:52 by lucida-s          #+#    #+#             */
-/*   Updated: 2023/01/16 17:43:38 by lucida-s         ###   ########.fr       */
+/*   Updated: 2023/01/17 12:21:08 by lucida-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,3 +52,15 @@ int	ft_fmt_uxX(int count, unsigned long int nb, int b, int bas)
 		return (-1);
 	return (count);
 }	
+
+int	ft_fmt_p(int count, void *p)
+{
+	count = ft_format_s(count, "0x");
+	if (count == -1)
+		return (-1);
+	count = ft_fmt_uxX(count, (unsigned long int)p, 2, 16);
+	if (count == -1)
+		return (-1);
+	return (count);
+
+}

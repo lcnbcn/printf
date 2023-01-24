@@ -6,36 +6,35 @@
 /*   By: lucida-s <lucida-s@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 19:09:59 by lucida-s          #+#    #+#             */
-/*   Updated: 2023/01/19 17:03:54 by lucida-s         ###   ########.fr       */
+/*   Updated: 2023/01/24 18:41:54 by lucida-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-
 int	ft_type(int count, va_list args, char c)
 {
 	if (c == '%')
 		count = ft_fmt_c(count, '%');
 	if (c == 'c')
-		count = ft_fmt_c(count, va_arg(args, char));
+		count = ft_fmt_c(count, va_arg(args, int));
 	if (c == 's')
 		count = ft_fmt_s(count, va_arg(args, char *));
 	if (c == 'i' || c == 'd')
 		count = ft_fmt_id(count, va_arg(args, int));
 	if (c == 'u')
-		count = ft_fmt_uxX(count, va_arg(args, unsigned int, 1, 10));
+		count = ft_fmt_uxxm(count, va_arg(args, unsigned int), 1, 10);
 	if (c == 'x')
-		count = ft_fmt_uxX(count, va_arg(args, unsigned int, 2, 16);
+		count = ft_fmt_uxxm(count, va_arg(args, unsigned int), 2, 16);
 	if (c == 'X')
-		count = ft_fmt_uxX(count, va_arg(args, unsigned int, 3, 16);
+		count = ft_fmt_uxxm(count, va_arg(args, unsigned int), 3, 16);
 	if (c == 'p')
-		count = ft_fmt_p(count, va_arg(args, unsigned long int);
+		count = ft_fmt_p(count, va_arg(args, void *));
 	return (count);
 }
 
-int	ft_check(int count, va_list args, char *str)
+int	ft_check(int count, va_list args, const char *str)
 {
 	int	i;
 
@@ -61,7 +60,7 @@ int	ft_check(int count, va_list args, char *str)
 
 int	ft_printf(char const *str, ...)
 {
-	int 	count;
+	int		count;
 	va_list	args;
 
 	count = 0;

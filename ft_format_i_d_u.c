@@ -6,7 +6,7 @@
 /*   By: lucida-s <lucida-s@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 16:10:52 by lucida-s          #+#    #+#             */
-/*   Updated: 2023/01/19 17:04:42 by lucida-s         ###   ########.fr       */
+/*   Updated: 2023/01/24 18:34:46 by lucida-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,18 @@ int	ft_fmt_id(int count, int nb)
 		if (nb < 0)
 		{	
 			count = ft_fmt_c(count, '-');
+			if (count == -1)
+				return (-1);
 			nb *= -1;
 		}
-		count = ft_fmt_uxX(count, nb, 1, 10);
+		count = ft_fmt_uxxm(count, nb, 1, 10);
 		if (count == -1)
 			return (-1);
 	}
 	return (count);
 }
 
-int	ft_fmt_uxX(int count, unsigned int nb, int b, int bas)
+int	ft_fmt_uxxm(int count, unsigned int nb, int b, unsigned int bas)
 {
 	char	*base;
 
@@ -46,28 +48,28 @@ int	ft_fmt_uxX(int count, unsigned int nb, int b, int bas)
 		base = "0123456789ABCDEF";
 	if (nb >= bas)
 	{
-		count = ft_fmt_uxX(count, nb/bas, b, bas);
+		count = ft_fmt_uxxm(count, nb / bas, b, bas);
 		if (count == -1)
 			return (-1);
 	}
-	count = ft_fmt_c(count, base[nb%bas]);
+	count = ft_fmt_c(count, base[nb % bas]);
 	if (count == -1)
 		return (-1);
 	return (count);
 }	
 
-int ft_fmt_phex(int count, unsigned long int nb)
+int	ft_fmt_phex(int count, unsigned long int nb)
 {
-	char *base;
+	char	*base;
 
 	base = "0123456789abcdef";
 	if (nb >= 16)
 	{
-		count = ft_fmt_phex(count, nb/16);
+		count = ft_fmt_phex(count, nb / 16);
 		if (count == -1)
 			return (-1);
 	}
-	count = ft_fmt_c(count, base[nb%16]);
+	count = ft_fmt_c(count, base[nb % 16]);
 	if (count == -1)
 		return (-1);
 	return (count);
@@ -82,5 +84,4 @@ int	ft_fmt_p(int count, void *p)
 	if (count == -1)
 		return (-1);
 	return (count);
-
 }

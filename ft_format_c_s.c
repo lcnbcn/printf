@@ -6,17 +6,17 @@
 /*   By: lucida-s <lucida-s@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:10:33 by lucida-s          #+#    #+#             */
-/*   Updated: 2023/01/19 17:04:33 by lucida-s         ###   ########.fr       */
+/*   Updated: 2023/01/23 19:32:50 by lucida-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_fmt_c(int count, char c)
+int	ft_fmt_c(int count, int c)
 {
-	count = write(1, &c, 1);
-	if (count == -1)
+	if (write(1, &c, 1) != 1)
 		return (-1);
+	count++;
 	return (count);
 }
 
